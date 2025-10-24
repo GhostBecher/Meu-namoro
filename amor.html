@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌙</title>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden; /* body não rola */
+    background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000814 100%);
+    font-family: "Poppins", sans-serif;
+    color: #e0e6ed;
+    text-align: center;
+    position: relative;
+}
+
+/* Lua fixa */
+.moon {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4rem;
+    color: #f1f1f1;
+    filter: drop-shadow(0 0 15px #fff);
+    animation: glow 3s ease-in-out infinite alternate;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 5px #fff); }
+    to { filter: drop-shadow(0 0 20px #9ecfff); }
+}
+
+/* Container rolável */
+#scrollable {
+    height: 100%;
+    overflow-y: auto; /* apenas o conteúdo rola */
+    padding: 120px 20px 20px 20px; /* espaço no topo para a lua */
+    box-sizing: border-box;
+}
+
+/* Conteúdo */
+.content {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+}
+
+h1 { font-weight: 600; margin-bottom: 20px; }
+p { font-size: 1.1rem; line-height: 1.7; }
+a { display: inline-block; margin-top: 30px; color: #8ab4f8; text-decoration: none; font-weight: 500; transition: 0.3s; }
+a:hover { color: #fff; }
+
+
+/* Estrelas */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 0;
+    animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+    0%,100% { opacity:0; }
+    50% { opacity:0.8; }
+}
+</style>
+</head>
+<body>
+
+<div class="moon">🌙</div>
+
+<div id="scrollable">
+    <div class="content">
+        <h1>Quero te dizer algo...</h1>
+        <p>
+            Às vezes as coisas ficam confusas, mesmo quando a gente não entende o porquê.  
+            Eu não quero apontar culpados nem reviver o que doeu — quero apenas deixar claro  
+            que continuo aqui, com o mesmo carinho, o mesmo respeito e a mesma vontade de ver  
+            tudo ficar bem entre nós. Sei que não lidei com tudo isso da melhor forma possível, e peço 
+            desculpas por não te dar o apoio que você queria... Mas não quero deixar isso limitar o nosso amor.
+            Se eu fiz algo errado, me conte, me mostre, me ajude a melhorar, eu faço tudo, tudo pra não perder você...
+            Mesmo depois do clima ter ficado estranho entre nós, meu amor por você continua mais vivo do que nunca,
+            se você quer apenas um tempinho sem conversar, me avisa, que eu vou entender, e você fala comigo no seu tempo.
+            Eu te amo, e isso não mudou e nem vai mudar, tô aqui pra você, com você.<3
+        </p>
+        <p>
+            Se depender de mim, as coisas vão se ajeitar com calma, com verdade,  
+            e com o mesmo amor que fez tudo começar.
+            Você é, e sempre vai ser a minha princesinha.
+        </p>
+        <a href="index.html">Voltar</a>
+    </div>
+</div>
+
+<script>
+    // Cria estrelas
+    const numStars = 120;
+    for(let i=0;i<numStars;i++){
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random()*2+1;
+        const top = Math.random()*100;
+        const left = Math.random()*100;
+        const duration = Math.random()*3+2;
+        const delay = Math.random()*5;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.top = `${top}%`;
+        star.style.left = `${left}%`;
+        star.style.animationDuration = `${duration}s`;
+        star.style.animationDelay = `${delay}s`;
+        document.body.appendChild(star);
+    }
+</script>
+
+</body>
+</html>
